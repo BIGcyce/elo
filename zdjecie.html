@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obracające się zdjęcie</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            animation: backgroundChange 0.5s infinite;
+        }
+
+        @keyframes backgroundChange {
+            0% { background-color: black; }
+            50% { background-color: red; }
+            100% { background-color: rgb(68, 0, 255); }
+        }
+
+        #image {
+            position: absolute;
+            width: 100px; /* Możesz zmienić rozmiar obrazu */
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: spinning 3s linear infinite;
+        }
+
+        @keyframes spinning {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+<img id="image" src="https://c.tenor.com/pnEfIc3UoHEAAAAd/tenor.gif" alt="Obracające się zdjęcie" width="700" height="1000">
+
+<script>
+    const image = document.getElementById('image');
+    let speedX = 10; // Prędkość w poziomie
+    let speedY = 10; // Prędkość w pionie
+    let posX = window.innerWidth / 2; // Początkowa pozycja w poziomie
+    let posY = window.innerHeight / 2; // Początkowa pozycja w pionie
+
+    function updatePosition() {
+        posX += speedX;
+        posY += speedY;
+
+        // Odbicie od krawędzi
+        if (posX + image.width / 2 > window.innerWidth || posX - image.width / 2 < 0) {
+            speedX = -speedX; // Zmiana kierunku w poziomie
+        }
+        if (posY + image.height / 2 > window.innerHeight || posY - image.height / 2 < 0) {
+            speedY = -speedY; // Zmiana kierunku w pionie
+        }
+
+        // Aktualizacja pozycji obrazu
+        image.style.left = posX + 'px';
+        image.style.top = posY + 'px';
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    updatePosition(); // Rozpoczęcie animacji
+</script>
+
+</body>
+</html>

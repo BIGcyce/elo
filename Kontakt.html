@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Kontakt</h1>
+    <h2>Menu</h2>
+    <nav>
+        <a href="o-mnie.html">O mnie</a>
+        <a href="projekty.html">Projekty</a>
+        <a href="index.html">Portfolio</a>
+    </nav>
+</header>
+
+<main>
+    <p>Jeśli masz pytania lub chcesz się ze mną skontaktować, możesz wypełnić formularz poniżej lub użyć podanych danych kontaktowych.</p>
+
+    <form action="submit_form.php" method="post">
+        <label for="name">Imię:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Adres e-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Wiadomość:</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit">Wyślij</button>
+    </form>
+
+    <hr>
+
+    <div class="contact-info">
+        <h2>Dane Kontaktowe</h2>
+        <ul>
+            <li><strong>Adres e-mail:</strong> <a href="mailto:kontakt@przyklad.pl">kontakt@przyklad.pl</a></li>
+            <li><strong>Numer telefonu:</strong> +48 123 456 789</li>
+        </ul>
+    </div>
+
+
+
+    <section class="location">
+        <h2>Lokalizacja</h2>
+        <p>Możesz mnie znaleźć pod tym adresem:</p>
+        <address>
+            ul.Jana Pawła ,<br>
+            01-234 Subaru,<br>
+            Polska
+        </address>
+    </section>
+</main>
+
+<footer>
+    <a href="zdjecie.html"><img src="https://i.pinimg.com/originals/e9/3a/7a/e93a7a46242ae2bc4f3506fd7e98047a.gif" width="700" height="200"></a>
+</footer>
+</body>
+</html>
